@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  deck-uploader:
+    container_name: deck-uploader
+    image: deck-uploader
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
+    environment:
+      API_SERVER: host.docker.internal:8080
+    entrypoint: yarn next dev

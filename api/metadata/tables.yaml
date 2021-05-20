@@ -1,0 +1,43 @@
+- table:
+    schema: public
+    name: companies
+  array_relationships:
+  - name: decks
+    using:
+      foreign_key_constraint_on:
+        column: company_handler
+        table:
+          schema: public
+          name: decks
+- table:
+    schema: public
+    name: decks
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      pages_count: pagesCount
+      company_handler: companyHandler
+      created_at: createdAt
+  object_relationships:
+  - name: company
+    using:
+      foreign_key_constraint_on: company_handler
+  array_relationships:
+  - name: slides
+    using:
+      foreign_key_constraint_on:
+        column: deck_id
+        table:
+          schema: public
+          name: slides
+- table:
+    schema: public
+    name: slides
+  configuration:
+    custom_root_fields: {}
+    custom_column_names:
+      file_size: fileSize
+      updated_at: updateAt
+      created_at: createdAt
+      original_page: originalPage
+      deck_id: deckId
