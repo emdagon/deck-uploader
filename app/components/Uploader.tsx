@@ -37,7 +37,7 @@ const Uploader = ({
       maxFiles={1}
       multiple={false}
       canCancel={false}
-      accept="application/pdf,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      accept="application/pdf"
       inputContent={
         <Header subheader="" textAlign="center">
           {caption}
